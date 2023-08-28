@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
-import TodoItem from "./components/TodoItem";
+import TodoGroup from "./components/TodoGroup";
 
 function App() {
     return (
         <div className="App">
             <h1>Todo List</h1>
-            <TodoItem />
+            <TodoGroup todoItems={["First", "Second"]} />
         </div>
     );
 }
