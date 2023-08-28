@@ -1,4 +1,5 @@
 import "./App.css";
+import TodoGenerator from "./components/TodoGenerator";
 import TodoGroup from "./components/TodoGroup";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
         <div className="App">
             <h1>Todo List</h1>
             <TodoGroup todoItems={["First", "Second"]} />
+            <TodoGenerator/>
         </div>
     );
 }
