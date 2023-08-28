@@ -1,5 +1,5 @@
-const TodoItem = () => {
-    return <div>This is the first Todo Item</div>;
+const TodoItem = (props) => {
+    return <div>{props.itemDescription}</div>;
 };
 
 export default TodoItem;
