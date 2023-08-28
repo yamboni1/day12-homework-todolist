@@ -1,8 +1,8 @@
 const TodoGenerator = () => {
     return (
         <div>
-            <input type="text"/>
-			<button>Add</button>
+            <input type="text" />
+            <button>Add</button>
         </div>
     );
 };
