@@ -13,8 +13,10 @@ const TodoGenerator = (props) => {
 
     return (
         <div>
-            <input type="text" onChange={onItemChange} />
-            <button onClick={addItem}>Add</button>
+            <input type="text" onChange={onItemChange} className="item-input" />
+            <button onClick={addItem} className="add-button">
+                Add
+            </button>
         </div>
     );
 };
