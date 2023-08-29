@@ -52,3 +52,22 @@
     text-align: start;
     font-size: 13px;
 }
+
+.done-button {
+    float: right;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: -5px;
+}
+
+.done-button:hover {
+    background-color: #d63031;
+}
+
+.done {
+    text-decoration: line-through;
+}
