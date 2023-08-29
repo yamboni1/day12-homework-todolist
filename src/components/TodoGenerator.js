@@ -1,15 +1,29 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodoItem } from "./todoListSlice";
 
-const TodoGenerator = (props) => {
-    const [item, setItem] = useState("");
+const TodoGenerator = () => {
+    const [itemInput, setItemInput] = useState("");
 
     const onItemChange = (event) => {
-        setItem(event.target.value);
+        setItemInput(event.target.value);
     };
 
+    const dispatch = useDispatch();
+    const id = new Date();
+
     const addItem = () => {
-        if (item.trim() != null) {
-            props.onAddItem(item);
+        if (!itemInput.match(/[a-z]/i) || itemInput.trim() == null) {
+            alert("Invalid input! please add text");
+        } else {
+            dispatch(
+                addTodoItem({
+                    id,
+                    text: itemInput,
+                    done: false,
+                })
+            );
+            setItemInput("");
         }
     };
 
@@ -17,6 +31,7 @@ const TodoGenerator = (props) => {
         <div>
             <input
                 type="text"
+                value={itemInput}
                 onChange={onItemChange}
                 className="item-input"
                 placeholder="What are you going to do today?"
