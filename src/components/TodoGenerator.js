@@ -8,7 +8,7 @@ const TodoGenerator = (props) => {
     };
 
     const addItem = () => {
-        if (!item.trim() == null) {
+        if (item.trim() != null) {
             props.onAddItem(item);
         }
     };
