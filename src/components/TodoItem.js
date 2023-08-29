@@ -9,8 +9,13 @@ const TodoItem = (props) => {
     };
 
     const deleteItem = () => {
-        dispatch(deleteTodoItem(props.index));
+        if(window.confirm("Do you want to delete this to do item?")){
+            dispatch(deleteTodoItem(props.index));
+        }else{
+            alert("This item is not deleted.")
+        }
     };
+   
 
     return (
         <>
@@ -21,6 +26,7 @@ const TodoItem = (props) => {
                 >
                     {props.todoItem.text}
                 </span>
+                
                 <button className="done-button" onClick={deleteItem}>
                     x
                 </button>
