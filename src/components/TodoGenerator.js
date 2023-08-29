@@ -34,10 +34,10 @@ const TodoGenerator = () => {
                 value={itemInput}
                 onChange={onItemChange}
                 className="item-input"
-                placeholder="What are you going to do today?"
+                placeholder="What are your todos for today?"
             />
             <button onClick={addItem} className="add-button">
-                Add
+                Add Todo
             </button>
         </div>
     );
