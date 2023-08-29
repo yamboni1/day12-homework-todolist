@@ -1,9 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    border-radius: 10px;
+  }
+
+  
 .App {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Poppins', sans-serif sans-serif;
+    background: #1A1A40;
+    color: #fff;
+    margin: 10px;
+}
+.todoGroup {
+  padding-top: 10px;
+  width: 450px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1A1A40;
+  overflow-y: auto;
 }
 
 .add-button {
@@ -11,11 +30,12 @@
     padding: 10px 10px;
     font-size: 13px;
     text-align: center;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    color: #007bff;
-    background-color: #fff;
+    background-color: #8758ff;
+    color: #fff;
+    border: none;
+    outline: none;
     cursor: pointer;
+    
 }
 
 .add-button:hover {
@@ -24,7 +44,7 @@
 }
 
 .item-input {
-    width: 300px;
+    width: 250px;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -46,16 +66,17 @@
 .todo-item {
     border: 1px gainsboro solid;
     border-radius: 5px;
-    width: 500px;
+    width: 400px;
     margin: 5px;
     padding: 10px 15px;
     text-align: start;
     font-size: 13px;
+    background-color: #6236d0;
 }
 
 .done-button {
     float: right;
-    background-color: #ff6347;
+    background-color: #2e115a;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -65,7 +86,7 @@
 }
 
 .done-button:hover {
-    background-color: #d63031;
+    background-color: #2e115a;
 }
 
 .done {
