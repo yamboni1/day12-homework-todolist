@@ -8,27 +8,27 @@ export const useTodos = () => {
         const response = await todoApi.getTodoTasks();
         dispatch(resetTodoTask(response.data));
     }
-    async function toggleItem(id,todoItem) {
+    async function toggleItem(id, todoItem) {
         await todoApi.updateTodoTask(todoItem.id, {
             done: !todoItem.done,
         });
         loadTodos();
     }
-    async function deleteItem(id){
+    async function deleteItem(id) {
         await todoApi.deleteTodoTask(id);
         loadTodos();
     }
-    async function addItem(todoItem){
+    async function addItem(todoItem) {
         await todoApi.addTodoTask(todoItem);
         loadTodos();
     }
-    async function updateItem(id,textToUpdate) {
+    async function updateItem(id, textToUpdate) {
         await todoApi.updateTodoTask(id, {
             text: textToUpdate
         });
         loadTodos();
     }
-    
+
     return {
         loadTodos,
         toggleItem,

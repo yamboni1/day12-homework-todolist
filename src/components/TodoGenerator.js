@@ -4,7 +4,7 @@ import { useTodos } from "../hooks/useTodos";
 
 const TodoGenerator = () => {
     const [itemInput, setItemInput] = useState("");
-    const {addItem} = useTodos();
+    const { addItem } = useTodos();
     const onItemChange = (event) => {
         setItemInput(event.target.value);
     };
