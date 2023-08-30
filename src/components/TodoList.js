@@ -14,13 +14,11 @@ const TodoList = (props) => {
         }
         fetchData();
     },[]);
-    // const todoItems = useSelector((state) => state.todoList.todoList);
     return (
         <>
             <h1>Todo List</h1>
             <TodoGroup  />
             <TodoGenerator />
-            {/* todoItems={todoItems} isDone={props.isDone} */}
         </>
     );
 };
