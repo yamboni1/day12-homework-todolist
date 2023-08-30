@@ -3,7 +3,6 @@ import TodoItem from "./TodoItem";
 
 const TodoGroup = () => {
     const todoItems = useSelector((state) => state.todoList.todoList);
-    console.log(todoItems);
 
     return <div className="items">
         {
