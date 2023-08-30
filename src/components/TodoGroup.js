@@ -16,7 +16,7 @@ const TodoGroup = () => {
                     />
                 );
 
-        })}
+            })}
 
     </div>
 };
