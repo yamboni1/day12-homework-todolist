@@ -1,24 +1,36 @@
-import { useDispatch } from "react-redux";
-import { resetTodoTask } from "./todoListSlice";
-import * as todoApi from "./../apis/todoApi";
+
+import { Button, Modal } from "antd";
+import { useTodos } from "../hooks/useTodos";
+import { useState } from "react";
+import { updateTodoTask } from "../apis/todoApi";
+import {EditOutlined,DeleteOutlined} from  "@ant-design/icons"; 
+
 
 const TodoItem = (props) => {
-    const dispatch = useDispatch();
+    const {toggleItem, updateItem, deleteItem} = useTodos();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [todoItem, setTodoItem] = useState("");
 
-    const toggleItem = async () => {
-        await todoApi.updateTodoTask(props.todoItem.id, {
-            done: !props.todoItem.done,
-        });
-        const response = await todoApi.getTodoTasks();
-        dispatch(resetTodoTask(response.data));
+    const handleToggleItem = async () => {
+        toggleItem(props.todoItem.id,props.todoItem)
     };
+    const showModal =() =>{
+        setIsModalOpen(true)
+    };
+    const handleCancel =() =>{
+        setIsModalOpen(false)
+    };
+    const addItem = (event) =>{
+        setTodoItem(event.target.value)
+    }
 
-    const deleteItem = async () => {
+    const handleSubmit = () =>{
+        updateItem(props.todoItem.id, todoItem)
+        setIsModalOpen(false)
+    };
+    const handleDeleteItem = async () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            await todoApi.deleteTodoTask(props.todoItem.id);
-            const response = await todoApi.getTodoTasks();
-            dispatch(resetTodoTask(response.data));
-
+            deleteItem(props.todoItem.id)
         } else {
             alert("To do item was not deleted");
         }
@@ -27,21 +39,27 @@ const TodoItem = (props) => {
     return (
         <>
             <div className="todo-item">
-                <span
+                <span id= "todoText"
                     className={
                         props.isDone ? "" : props.todoItem.done ? "done" : ""
                     }
-                    onClick={toggleItem}
+                    onClick={handleToggleItem}
                 >
                     {props.todoItem.text}
                 </span>
+                <Button className="edit-btn" icon={ <EditOutlined />} onClick={showModal} ></Button>
                 {props.isDone ? (
                     ""
                 ) : (
-                    <button onClick={deleteItem}>
-                        x
-                    </button>
+                    <Button className="delete-btn" onClick={handleDeleteItem} icon={<DeleteOutlined />}>
+                    </Button>
                 )}
+               <Modal title="Update To Do Task" centered open={isModalOpen} onOk={handleSubmit} onCancel={handleCancel}>
+                    <input className="modal-input" type="text" placeholder={props.todoItem.text}
+                    value={todoItem}
+                    onChange={addItem}>
+                    </input>
+                </Modal> 
             </div>
         </>
     );
