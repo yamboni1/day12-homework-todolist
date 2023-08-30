@@ -10,7 +10,6 @@ const TodoGenerator = () => {
     };
 
     const dispatch = useDispatch();
-    const id = new Date();
 
     const addItem = () => {
         if (!itemInput.match(/[a-z]/i) || itemInput.trim() == null) {
@@ -18,7 +17,7 @@ const TodoGenerator = () => {
         } else {
             dispatch(
                 addTodoItem({
-                    id,
+                    id: Date.now(),
                     text: itemInput,
                     done: false,
                 })
