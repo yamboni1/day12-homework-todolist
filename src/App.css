@@ -1,24 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    border-radius: 10px;
+  }
+/* 
 .App {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-   }
+    color: #fff;
+   } */
     
    .App > .nav-bar > nav > ul {
     display: flex;
     justify-content: center;
+    color: #fff;
    }
     
    .App > .nav-bar > nav > ul > li {
     padding: 10px;
     list-style: none;
+    color: #fff;
    }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-* {
-    border-radius: 10px;
-  }
+
 
   
 .App {
