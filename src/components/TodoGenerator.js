@@ -1,32 +1,34 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodoItem } from "./todoListSlice";
+import { resetTodoTask } from "./todoListSlice";
+import * as todoApi from "./../apis/todoApi";
+
 
 const TodoGenerator = () => {
     const [itemInput, setItemInput] = useState("");
+    const dispatch = useDispatch();
 
     const onItemChange = (event) => {
         setItemInput(event.target.value);
     };
 
-    const dispatch = useDispatch();
-
-    const addItem = () => {
-        if (isValidInput|| itemInput.trim() == null) {
-            alert("Invalid input! please add text");
-        } else {
-            dispatch(
-                addTodoItem({
-                    id: Date.now(),
-                    text: itemInput,
-                    done: false,
-                })
-            );
+    const addItem = async () => {
+        if (isValidInput()) {
+            await todoApi.addTodoTask({
+                id: Date.now().toString(),
+                text: itemInput,
+                done: false,
+            });
+            const response = await todoApi.getTodoTasks();
+            dispatch(resetTodoTask(response.data));
             setItemInput("");
+        } else {
+            alert("Invalid Input! please enter something.");
         }
     };
+
     const isValidInput = () => {
-            return itemInput.trim() !== "";
+        return itemInput.trim() !== "";
     };
 
     return (
@@ -36,10 +38,11 @@ const TodoGenerator = () => {
                 value={itemInput}
                 onChange={onItemChange}
                 className="item-input"
-                placeholder="What are your todos for today?"
+                placeholder="What are you going to do today?"
+                id="itemInput"
             />
             <button onClick={addItem} className="add-button">
-                Add Todo
+                Add Task
             </button>
         </div>
     );
