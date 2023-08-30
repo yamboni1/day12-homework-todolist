@@ -1,50 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     border-radius: 10px;
-  }
-/* 
-.App {
+}
+
+.App>.nav-bar {
+    width:600px;
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.App>.nav-bar>nav>ul {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-   } */
-    
-   .App > .nav-bar > nav > ul {
-    display: flex;
-    justify-content: center;
-    color: #fff;
-   }
-    
-   .App > .nav-bar > nav > ul > li {
-    padding: 10px;
+    padding: 0;
+    justify-content: space-around;
+    background-color: #060613;
+}
+
+.App>.nav-bar>nav>ul>li {
+    padding: 10px 25px;
     list-style: none;
-    color: #fff;
-   }
+}
 
-
-
-  
 .App {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family:'Poppins', sans-serif sans-serif;
+    font-family: 'Poppins', sans-serif sans-serif;
     background: #1A1A40;
     color: #fff;
     margin: 10px;
 }
+
 .todoGroup {
-  padding-top: 10px;
-  width: 450px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1A1A40;
-  overflow-y: auto;
+    padding-top: 10px;
+    width: 450px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1A1A40;
+    overflow-y: auto;
 }
 
 .add-button {
@@ -57,7 +58,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    
+
 }
 
 .add-button:hover {
@@ -86,6 +87,8 @@
 }
 
 .todo-item {
+    display: flex;
+    justify-content: space-between;
     border: 1px gainsboro solid;
     border-radius: 5px;
     width: 400px;
@@ -113,4 +116,14 @@
 
 .done {
     text-decoration: line-through;
+}
+
+#todoText {
+    width: 80%;
+
+}
+.items {
+    width: 400px;
+    height: 500px;
+    overflow-y: auto;
 }
