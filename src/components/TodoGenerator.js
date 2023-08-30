@@ -12,7 +12,7 @@ const TodoGenerator = () => {
     const dispatch = useDispatch();
 
     const addItem = () => {
-        if (!itemInput.match(/[a-z]/i) || itemInput.trim() == null) {
+        if (isValidInput|| itemInput.trim() == null) {
             alert("Invalid input! please add text");
         } else {
             dispatch(
@@ -24,6 +24,9 @@ const TodoGenerator = () => {
             );
             setItemInput("");
         }
+    };
+    const isValidInput = () => {
+            return itemInput.trim() !== "";
     };
 
     return (
