@@ -17,6 +17,7 @@ const TodoItem = (props) => {
         setIsModalOpen(true)
     };
     const handleCancel = () => {
+        setTodoItem("")
         setIsModalOpen(false)
     };
     const addItem = (event) => {
