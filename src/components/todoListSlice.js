@@ -6,17 +6,22 @@ const todoListSlice = createSlice({
         todoList: [],
     },
     reducers: {
+        resetTodoTask:(state, action)=>{
+            state.todoList = action.payload
+        },
         addTodoItem: (state, action) => {
             state.todoList.push(action.payload);
         },
-        doneTodoItem: (state, action) => {
-            state.todoList[action.payload].done = !state.todoList[action.payload].done;
+        toggleTodoItem: (state, action) => {
+            const todoItem = state.todoList.find(todoItem => todoItem.id === action.payload);
+            todoItem.done = !todoItem.done;
         },
         deleteTodoItem: (state, action) => {
-            state.todoList.splice(action.payload, 1);
+            const newTodoList = state.todoList.filter(todoItem => todoItem.id !== action.payload);
+            state.todoList = newTodoList;
         },
     },
 });
 
-export const { addTodoItem, doneTodoItem, deleteTodoItem } = todoListSlice.actions;
+export const { addTodoItem, toggleTodoItem, deleteTodoItem, resetTodoTask } = todoListSlice.actions;
 export default todoListSlice.reducer;
