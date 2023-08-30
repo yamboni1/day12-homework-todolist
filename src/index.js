@@ -5,12 +5,33 @@ import App from "./App";
 import { store } from "./app/store";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HelpPage from "./pages/HelpPage";
+import TodoList from "./components/TodoList";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const router = createBrowserRouter([
+
+    {path: "/",
+    element: <App />,
+    children:[
+        {
+            index: true,
+            element: <TodoList />
+        },{
+            path: "/help",
+            element: <HelpPage/>
+        }
+
+
+    ]},
+    {path: "/help",
+    element: <HelpPage />}
+]);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
+            <RouterProvider router= {router}/>
         </Provider>
     </React.StrictMode>
 );
