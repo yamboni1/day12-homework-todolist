@@ -16,6 +16,7 @@ a{
 }
 a:hover{
     text-decoration: underline;
+    color: #b189e1;
 }
 .App>.nav-bar>nav>ul {
     display: flex;
