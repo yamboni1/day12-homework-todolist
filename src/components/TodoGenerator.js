@@ -1,26 +1,21 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { resetTodoTask } from "./todoListSlice";
-import * as todoApi from "./../apis/todoApi";
+import { useTodos } from "../hooks/useTodos";
 
 
 const TodoGenerator = () => {
     const [itemInput, setItemInput] = useState("");
-    const dispatch = useDispatch();
-
+    const {addItem} = useTodos();
     const onItemChange = (event) => {
         setItemInput(event.target.value);
     };
 
-    const addItem = async () => {
+    const handleAddItem = async () => {
         if (isValidInput()) {
-            await todoApi.addTodoTask({
+            addItem({
                 id: Date.now().toString(),
                 text: itemInput,
-                done: false,
-            });
-            const response = await todoApi.getTodoTasks();
-            dispatch(resetTodoTask(response.data));
+                done: false
+            })
             setItemInput("");
         } else {
             alert("Invalid Input! please enter something.");
@@ -41,7 +36,7 @@ const TodoGenerator = () => {
                 placeholder="What are you going to do today?"
                 id="itemInput"
             />
-            <button onClick={addItem} className="add-button">
+            <button type="primary" onClick={handleAddItem} className="add-button">
                 Add Task
             </button>
         </div>
