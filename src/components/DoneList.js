@@ -9,8 +9,6 @@ const DoneList = () => {
             <h1>Done Items</h1>
             <DoneGroup todoItems={todoItems} />
         </>
-
-
     );
 };
 
