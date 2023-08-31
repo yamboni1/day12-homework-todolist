@@ -146,12 +146,13 @@ a:hover{
   
   /* Track */
   .items::-webkit-scrollbar-track {
-    background-color: #5e548e;
+    background-color: #000000;
   }
   
   /* Handle */
   .items::-webkit-scrollbar-thumb {
-    background: #150f28;
+    background: #5e548e;
+    size: 4px;
   }
   
 .modal-input{

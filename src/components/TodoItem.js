@@ -20,7 +20,7 @@ const TodoItem = (props) => {
         setTodoItem("")
         setIsModalOpen(false)
     };
-    const addItem = (event) => {
+    const addItem = (event) => { 
         setTodoItem(event.target.value)
     }
 
@@ -60,6 +60,7 @@ const TodoItem = (props) => {
                         onChange={addItem}>
                     </input>
                 </Modal>
+                <Modal title="Delete to do task"></Modal>
             </div>
         </>
     );
